@@ -3,4 +3,9 @@ member(X, [X|_]).
 
 % Recursive case: X is an element of the tail of the list
 member(X, [_|Tail]) :-
-    member(X, Tail).
+    member(X, Tail). 
+
+
+%Question2 first in the list 
+is_first(X, [X|_]).
+
