@@ -1,3 +1,7 @@
+% TP 2
+
+% Question 1 :
+
 % Base case: X is the head of the list
 member(X, [X|_]).
 
@@ -6,11 +10,23 @@ member(X, [_|Tail]) :-
     member(X, Tail). 
 
 
-%Question2 first in the list 
+% Question 2 : first in the list 
 is_first(X, [X|_]).
 
 
-%Question5 
+
+% Question 3 :
+last(L,Z).
+
+
+
+% Question 4 :
+penultimate(E, [E, _]).
+penultimate(E, [_|Tail]) :- penultimate(E, Tail).
+
+
+
+% Question 5 :
 del_k(_, [], _, []).                % Base case: if the list is empty, result is also empty
 del_k(1, [X|Tail], 1, Tail).        % If K is 1, remove the first element and return the tail
 del_k(K, [X|Tail], K, [X|Result]) :- % Recursively skip the element to remove
@@ -18,6 +34,22 @@ del_k(K, [X|Tail], K, [X|Result]) :- % Recursively skip the element to remove
     K1 is K - 1, 
     del_k(K1, Tail, K, Result).
 
+
+% Question 6 :
+length(L, N).
+
+
+% Question 7 :
+
+
 %Question8 
 concat([], L, L).
 concat([H|T], L2, [H|L3]) :- concat(T, L2, L3).
+
+
+
+% Question 9 :
+palindrome(L) :- reverse(L, L).
+% reverse helper predicate
+reverse([], []).
+reverse([H|T], R) :- reverse(T, RT), concat(RT, [H], R).
