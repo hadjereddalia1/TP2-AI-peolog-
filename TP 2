@@ -18,3 +18,6 @@ del_k(K, [X|Tail], K, [X|Result]) :- % Recursively skip the element to remove
     K1 is K - 1, 
     del_k(K1, Tail, K, Result).
 
+%Question8 
+concat([], L, L).
+concat([H|T], L2, [H|L3]) :- concat(T, L2, L3).
