@@ -9,3 +9,12 @@ member(X, [_|Tail]) :-
 %Question2 first in the list 
 is_first(X, [X|_]).
 
+
+%Question5 
+del_k(_, [], _, []).                % Base case: if the list is empty, result is also empty
+del_k(1, [X|Tail], 1, Tail).        % If K is 1, remove the first element and return the tail
+del_k(K, [X|Tail], K, [X|Result]) :- % Recursively skip the element to remove
+    K > 1, 
+    K1 is K - 1, 
+    del_k(K1, Tail, K, Result).
+
